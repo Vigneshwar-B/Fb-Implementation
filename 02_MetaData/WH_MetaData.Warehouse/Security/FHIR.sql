@@ -1,0 +1,5 @@
+CREATE SCHEMA [FHIR]
+    AUTHORIZATION [dbo];
+
+
+GO
