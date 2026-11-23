@@ -23,6 +23,18 @@
 # CELL ********************
 
 # MAGIC %%sql
+# MAGIC CREATE SCHEMA IF NOT EXISTS LH_Silver.FHIR;
+
+# METADATA ********************
+
+# META {
+# META   "language": "sparksql",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+# MAGIC %%sql
 # MAGIC CREATE TABLE IF NOT EXISTS LH_Silver.FHIR.silver_condition (
 # MAGIC     id                    STRING      NOT NULL,
 # MAGIC     patient_id            STRING,

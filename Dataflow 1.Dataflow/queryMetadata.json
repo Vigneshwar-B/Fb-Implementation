@@ -1,0 +1,29 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Dataflow 1",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "DefaultDestination": {
+      "queryId": "a1b80356-5568-44d6-a646-58ee5f3efb78",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "FHIR silver_condition": {
+      "queryId": "b2609f27-9576-49a4-8661-831ef77bd1b6",
+      "queryName": "FHIR silver_condition",
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"d5d5aad8-8cde-4a70-a8d8-a6d123ff3aa2\",\"DatasourceId\":\"1b5d0b81-0d93-4061-9960-d368fd24bb11\"}"
+    }
+  ]
+}

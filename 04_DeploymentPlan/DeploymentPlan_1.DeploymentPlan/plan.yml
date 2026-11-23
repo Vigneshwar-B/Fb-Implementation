@@ -5,6 +5,8 @@ groups:
     logicalId: e7e5e8af-3511-852a-4a70-cb68bf4f0f35
   - name: LH_Silver_Lakehouse
     logicalId: 8ac4fd57-93ec-8d11-47ae-0392932ba5ef
+    dependsOn:
+      - groupName: LH_Bronze_Lakehouse
   - name: WH_Gold_Warehouse
     logicalId: 3664a3cf-e92d-b552-484b-9d47d96226d3
     preActions:
@@ -14,3 +16,22 @@ groups:
           logicalId: 50efd821-1153-4e64-98e7-b8a635b8cb44
     dependsOn:
       - groupName: LH_Silver_Lakehouse
+  - name: 01_NB_FHIR_SourceToBronze_DirectTable_SynapseNotebook
+    logicalId: 5cb24ddf-035e-ba83-44e2-9715b3acb0b0
+    dependsOn:
+      - groupName: WH_Gold_Warehouse
+  - name: 02_NB_FHIR_BronzeToSilver_DirectTable_SynapseNotebook
+    logicalId: f58998b2-3343-8c56-4840-8a0e09274c84
+    dependsOn:
+      - groupName: 01_NB_FHIR_SourceToBronze_DirectTable_SynapseNotebook
+  - name: WH_MetaData_Warehouse
+    logicalId: 188245fe-6a61-80b9-4c0b-c6e590b20337
+    postActions:
+      - name: Dataflow 1_DataflowFabric
+        job:
+          type: Execute
+          logicalId: 67a70e82-1622-43ab-a0e1-0af7ab8d3bf9
+    dependsOn:
+      - groupName: 02_NB_FHIR_BronzeToSilver_DirectTable_SynapseNotebook
+  - name: Dataflow 1_DataflowFabric
+    logicalId: 67a70e82-1622-43ab-a0e1-0af7ab8d3bf9
