@@ -1,0 +1,30 @@
+CREATE VIEW dbo.goldagg as (
+SELECT [id],
+			[patient_id],
+			[encounter_id],
+			[clinical_status],
+			[verification_status],
+			[category],
+			[code],
+			[code_display],
+			[onset_datetime],
+			[abatement_datetime],
+			[recorded_date],
+			[version_id],
+			[last_updated],
+			[extraction_timestamp],
+			[api_url_or_params],
+			[ETLBatchId],
+			[HashKey],
+			[ETLLoadedDate],
+			[ETLLoadedBy],
+			[ETLModifiedDate],
+			[ETLModifiedBy],
+			[VersionNo],
+			[EffectiveFrom],
+			[EffectiveTo],
+			[IsCurrent],
+			[ChangeType]
+FROM LH_Silver.[FHIR].[silver_condition] )
+
+GO

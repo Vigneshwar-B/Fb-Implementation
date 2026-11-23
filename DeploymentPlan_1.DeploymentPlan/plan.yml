@@ -1,0 +1,16 @@
+$schema: https://developer.microsoft.com/json-schemas/fabric/item/deploymentPlan/definition/plan/1.0.0/schema.json
+version: 1.0.0
+groups:
+  - name: LH_Bronze_Lakehouse
+    logicalId: e7e5e8af-3511-852a-4a70-cb68bf4f0f35
+  - name: LH_Silver_Lakehouse
+    logicalId: 8ac4fd57-93ec-8d11-47ae-0392932ba5ef
+  - name: WH_Gold_Warehouse
+    logicalId: 3664a3cf-e92d-b552-484b-9d47d96226d3
+    preActions:
+      - name: Notebook_Precopy_Script_SynapseNotebook
+        job:
+          type: Execute
+          logicalId: 50efd821-1153-4e64-98e7-b8a635b8cb44
+    dependsOn:
+      - groupName: LH_Silver_Lakehouse
